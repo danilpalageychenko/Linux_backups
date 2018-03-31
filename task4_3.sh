@@ -17,9 +17,9 @@ fi
 tar -zcf /tmp/backups/"$nameBackUp""$i".tar.gz "$1" 2> /dev/null;
 done
 
-for (( i = `ls /tmp/backups | grep "root-task4_3" | wc -l`; i >= $(($2)); i-- ))
+for (( i = `ls /tmp/backups | grep "$nameBackUp" | wc -l`; i >= $(($2)); i-- ))
 do
-rm -f /tmp/backups/$nameBackUp$i.tar.gz
+rm -f /tmp/backups/"$nameBackUp$i.tar.gz"
 done
 
 #rm -f /tmp/backups/$nameBackUp{$(($2))..$(($count))}.tar.gz 
