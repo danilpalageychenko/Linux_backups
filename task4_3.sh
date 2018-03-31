@@ -1,10 +1,10 @@
 #!/bin/bash
 
 if [ -n "$1" ] 2> /dev/null && [ -n "$2" ] 2>/dev/null && [ "$2" -eq "$2" ] 2>/dev/null && [ "$#" -eq 2 ] 2>/dev/null; then
-if ! [ -e "$1" ] 2>/dev/null; then echo 'No directory' >&2; exit 1; fi
+if ! [ -e "$1" ] 2>/dev/null; then echo 'ERROR: No directory' >&2; exit 1; fi
 nameBackUp=`echo $1 | sed 's/^\///' | sed 's/\//-/g' | sed 's/-$//'`
 countBackUp=$2
-else echo "You entered incorrect parameters" >&2; exit 1
+else echo "ERROR: You entered incorrect parameters" >&2; exit 1
 fi
 
 if ! [ -d "/tmp/backups/" ]; then mkdir /tmp/backups; fi
